@@ -1,20 +1,22 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <conio.h>
 #include <graphics.h>
 #include <math.h>
-void move(int j, int h, int &x, int &y)
+
+void move(int j, int h, int *x, int *y)
 {
     if (j == 1)
-        y -= h;
+        *y -= h;
     else if (j == 2)
-        x += h;
+        *x += h;
     else if (j == 3)
-        y += h;
+        *y += h;
     else if (j == 4)
-        x -= h;
-    lineto(x, y);
+        *x -= h;
+    lineto(*x, *y);
 }
-void hilbert(int r, int d, int l, int u, int i, int h, int &x, int &y)
+
+void hilbert(int r, int d, int l, int u, int i, int h, int *x, int *y)
 {
     if (i > 0)
     {
@@ -28,19 +30,25 @@ void hilbert(int r, int d, int l, int u, int i, int h, int &x, int &y)
         hilbert(u, l, d, r, i, h, x, y);
     }
 }
+
 int main()
 {
     int n, x1, y1;
     int x0 = 50, y0 = 150, x, y, h = 10, r = 2, d = 3, l = 4, u = 1;
-printf)"\nGive the value of n: ");
-scanf(“% d”, &n);
-x = x0;
-y = y0;
-int gm, gd = DETECT;
-initgraph(&gd, &gm, "c:\\turboc3\\bgi");
-moveto(x, y);
-hilbert(r, d, l, u, n, h, x, y);
-delay(10000);
-closegraph();
-return 0;
+
+    printf("\nGive the value of n: ");
+    scanf("%d", &n);
+
+    x = x0;
+    y = y0;
+
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "C:\\Turboc3\\BGI");
+
+    moveto(x, y);
+    hilbert(r, d, l, u, n, h, &x, &y);
+
+    delay(5000); // Adjust the delay time (in milliseconds)
+    closegraph();
+    return 0;
 }
