@@ -43,7 +43,7 @@ void main()
    the values */
     y = y1 + 0.5; /* Factor 0.5 is added to round
    the values */
-    Z
+    
         I = 1; /* Initialise loop counter */
     while (I <= length)
     {
