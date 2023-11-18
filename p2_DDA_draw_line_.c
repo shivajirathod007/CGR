@@ -47,7 +47,7 @@ void main()
         I = 1; /* Initialise loop counter */
     while (I <= length)
     {
-        putpixel(x, y, 15);
+        putpixel(x, y, 15);  // x&y are coordinates & the 15 is the color of o/p
         x = x + dx;
         y = y + dy;
         I = I + 1;
